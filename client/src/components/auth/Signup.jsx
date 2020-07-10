@@ -13,8 +13,20 @@ const Signup = () => {
     handler(value);
   };
 
+  const fieldValidator = (inputName, inputPassword) => {
+    if (inputName.length < 3 || inputPassword.length < 3) {
+      setError('Name and Password must be at least 3 chars');
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isValid = fieldValidator(name, password);
+    if (!isValid) return;
+
     const res = await fetch('http://localhost:5000/api/auth/signup', {
       method: 'POST',
       headers: {
@@ -42,12 +54,14 @@ const Signup = () => {
           type='text'
           placeholder='Name'
           value={name}
+          required
           onChange={(e) => changeHandler(e, setName)}
         />
         <input
           type='password'
           placeholder='Password'
           value={password}
+          required
           onChange={(e) => changeHandler(e, setPassword)}
         />
         <Button type='submit'>Sign up</Button>
