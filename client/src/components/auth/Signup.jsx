@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { FormWrapper, Form, Button, Error } from './signupStyle';
 
@@ -6,6 +7,7 @@ const Signup = () => {
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState(null);
+  const history = useHistory();
 
   const changeHandler = (e, handler) => {
     setError(null);
@@ -39,6 +41,7 @@ const Signup = () => {
       // add user to redux and authentication: true;
       // push to blogs page
       console.log('success');
+      history.push('/posts');
     } else {
       const data = await res.json();
       const { msg } = data;
