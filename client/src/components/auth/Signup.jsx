@@ -39,7 +39,6 @@ const Signup = () => {
 
     if (res.status === 201) {
       // add user to redux and authentication: true;
-      // push to blogs page
       console.log('success');
       history.push('/posts');
     } else {
