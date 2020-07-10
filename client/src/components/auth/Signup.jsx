@@ -1,13 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { FormWrapper, Form, Button, Error } from './signupStyle';
+import { authenticate } from '../../actions/actions';
 
 const Signup = () => {
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const changeHandler = (e, handler) => {
     setError(null);
@@ -40,6 +43,7 @@ const Signup = () => {
     if (res.status === 201) {
       // add user to redux and authentication: true;
       console.log('success');
+      dispatch(authenticate());
       history.push('/posts');
     } else {
       const data = await res.json();
