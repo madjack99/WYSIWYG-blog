@@ -1,8 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 
-import { FormWrapper, Form, Button, Error } from './signupStyle';
+import { FormWrapper, Form, Button, Error, linkStyle } from './signupStyle';
 import { authenticate } from '../../actions/actions';
 
 const Signup = () => {
@@ -70,6 +72,9 @@ const Signup = () => {
           onChange={(e) => changeHandler(e, setPassword)}
         />
         <Button type='submit'>Sign up</Button>
+        <Link to='/login' css={linkStyle}>
+          Log in
+        </Link>
       </Form>
     </FormWrapper>
   );
