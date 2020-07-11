@@ -4,10 +4,10 @@ import PostsList from '../components/posts/PostsList';
 
 const PostsListPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <PostsList />
-    </div>
+    </>
   );
 };
 

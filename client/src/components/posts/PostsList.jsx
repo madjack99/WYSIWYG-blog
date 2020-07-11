@@ -6,6 +6,10 @@ import { Li, Ul } from './postsListStyle';
 const PostsList = () => {
   const { posts } = useSelector((state) => state);
 
+  React.useEffect(() => {
+    document.title = 'Главная';
+  });
+
   const renderPosts = () => {
     if (!posts.length) {
       return <p>No posts available</p>;

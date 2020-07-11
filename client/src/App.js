@@ -5,8 +5,8 @@ import store from './store';
 
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-import PostsList from './components/posts/PostsList';
 import PostsListPage from './pages/PostsListPage';
+import AddPostPage from './pages/AddPostPage';
 
 function App() {
   return (
@@ -20,6 +20,9 @@ function App() {
         </Route>
         <Route path='/posts'>
           <PostsListPage />
+        </Route>
+        <Route path='/add-post'>
+          <AddPostPage />
         </Route>
       </Router>
     </Provider>
