@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 export const Button = styled.button`
   background: salmon;
@@ -10,4 +11,10 @@ export const Button = styled.button`
   &:hover {
     background: darkred;
   }
+`;
+
+export const linkStyle = css`
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
 `;

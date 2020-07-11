@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -28,10 +27,4 @@ export const Error = styled.div`
   background: red;
   color: #fff;
   text-align: center;
-`;
-
-export const linkStyle = css`
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.8rem;
 `;
