@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { FormWrapper, Form, Button, Error } from './signupStyle';
 import { authenticate } from '../../actions/actions';
 
-const Signup = () => {
+const Login = () => {
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState(null);
@@ -32,7 +32,7 @@ const Signup = () => {
     const isValid = fieldValidator(name, password);
     if (!isValid) return;
 
-    const res = await fetch('http://localhost:5000/api/auth/signup', {
+    const res = await fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,8 +40,7 @@ const Signup = () => {
       body: JSON.stringify({ name, password }),
     });
 
-    if (res.status === 201) {
-      console.log('success');
+    if (res.status === 200) {
       dispatch(authenticate());
       history.push('/posts');
     } else {
@@ -69,10 +68,10 @@ const Signup = () => {
           required
           onChange={(e) => changeHandler(e, setPassword)}
         />
-        <Button type='submit'>Sign up</Button>
+        <Button type='submit'>Log in</Button>
       </Form>
     </FormWrapper>
   );
 };
 
-export default Signup;
+export default Login;
