@@ -6,6 +6,7 @@ import store from './store';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import PostsList from './components/posts/PostsList';
+import PostsListPage from './pages/PostsListPage';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Login />
         </Route>
         <Route path='/posts'>
-          <PostsList />
+          <PostsListPage />
         </Route>
       </Router>
     </Provider>

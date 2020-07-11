@@ -7,6 +7,10 @@ export const Li = styled.li`
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
+  &:hover {
+    background: lemonchiffon;
+    color: rebeccapurple;
+  }
 `;
 
 export const Ul = styled.ul`
