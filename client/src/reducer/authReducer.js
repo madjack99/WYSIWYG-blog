@@ -1,8 +1,8 @@
-import { SIGN_UP } from '../actions/actionTypes';
+import { AUTHENTICATE } from '../actions/actionTypes';
 
 export default (state = false, action) => {
   switch (action.type) {
-    case SIGN_UP:
+    case AUTHENTICATE:
       return action.payload;
     default:
       return state;

@@ -1,6 +1,6 @@
-import { SIGN_UP } from './actionTypes';
+import { AUTHENTICATE } from './actionTypes';
 
 export const authenticate = () => ({
-  type: SIGN_UP,
+  type: AUTHENTICATE,
   payload: true,
 });

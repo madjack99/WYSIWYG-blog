@@ -1,2 +1,2 @@
-export const SIGN_UP = 'SIGN_UP';
+export const AUTHENTICATE = 'AUTHENTICATE';
 export const FETCH_POSTS = 'FETCH_POSTS';
