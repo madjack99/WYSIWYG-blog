@@ -5,6 +5,7 @@ import store from './store';
 
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
+import PostsList from './components/posts/PostsList';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
         <Route path='/login'>
           <Login />
         </Route>
-        <Route path='/posts'>Posts</Route>
+        <Route path='/posts'>
+          <PostsList />
+        </Route>
       </Router>
     </Provider>
   );
