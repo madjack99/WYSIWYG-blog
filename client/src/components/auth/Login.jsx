@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 
-import { FormWrapper, Form, Button, Error, linkStyle } from './signupStyle';
+import { FormWrapper, Form, Error, linkStyle } from './signupLoginStyle';
+import { Button } from '../../shared/sharedStyles';
 import { authenticate } from '../../actions/actions';
 
 const Login = () => {

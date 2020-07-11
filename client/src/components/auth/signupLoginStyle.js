@@ -19,18 +19,6 @@ export const Form = styled.form`
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.75);
 `;
 
-export const Button = styled.button`
-  background: salmon;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-
-  &:hover {
-    background: darkred;
-  }
-`;
-
 export const Error = styled.div`
   position: absolute;
   top: 0;
