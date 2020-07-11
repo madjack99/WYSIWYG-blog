@@ -1,20 +1,28 @@
 import React from 'react';
+import CKEditor from 'ckeditor4-react';
+
+import { FormWrapper, Form, Button } from '../../shared/sharedStyles';
 
 const AddPost = () => {
   React.useEffect(() => {
     document.title = 'Добавить запись';
   });
 
+  const onEditorChange = (e) => {
+    const data = e.editor.getData();
+    console.log(data);
+  };
+
   return (
-    <div>
-      <form>
-        <input type='text' name='title' />
+    <FormWrapper>
+      <Form>
+        <input type='text' name='title' placeholder='Post title' />
         <br />
-        <input type='text' name='text' />
+        <CKEditor onChange={onEditorChange} data='Post content' />
         <br />
-        <button type='submit'>Add post</button>
-      </form>
-    </div>
+        <Button type='submit'>Add post</Button>
+      </Form>
+    </FormWrapper>
   );
 };
 
