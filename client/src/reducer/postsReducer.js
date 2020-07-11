@@ -13,6 +13,18 @@ const test = [
     date: '11/07/2020',
     author: 'Alex',
   },
+  {
+    title: 'First post',
+    text: 'Some text',
+    date: '11/07/2020',
+    author: 'Alex',
+  },
+  {
+    title: 'First post',
+    text: 'Some text',
+    date: '11/07/2020',
+    author: 'Alex',
+  },
 ];
 
 export default (state = test, action) => {
