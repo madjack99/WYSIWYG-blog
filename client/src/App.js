@@ -7,6 +7,7 @@ import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import PostsListPage from './pages/PostsListPage';
 import AddPostPage from './pages/AddPostPage';
+import PostPage from './pages/PostPage';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path='/add-post'>
           <AddPostPage />
+        </Route>
+        <Route path='/post/:id'>
+          <PostPage />
         </Route>
       </Router>
     </Provider>

@@ -9,7 +9,6 @@ import { Button, linkStyle } from '../../shared/sharedStyles';
 
 const Header = () => {
   const location = useLocation();
-  console.log(location);
 
   const linkPath = location.pathname === '/add-post' ? 'posts' : 'add-post';
   const linkTitle =
