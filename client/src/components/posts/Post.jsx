@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ const Post = () => {
   return (
     <>
       <h1>{title}</h1>
-      {content}
+      {parse(content)}
       <p>Author: {author}</p>
       <p>{date}</p>
     </>
