@@ -1,9 +1,11 @@
-import { AUTHENTICATE } from '../actions/actionTypes';
+import { AUTHENTICATE, LOG_OUT } from '../actions/actionTypes';
 
 export default (state = false, action) => {
   switch (action.type) {
     case AUTHENTICATE:
-      return action.payload;
+      return true;
+    case LOG_OUT:
+      return false;
     default:
       return state;
   }

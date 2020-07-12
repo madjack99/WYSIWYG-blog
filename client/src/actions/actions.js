@@ -1,8 +1,7 @@
-import { AUTHENTICATE, SET_AUTHOR, FETCH_POSTS } from './actionTypes';
+import { AUTHENTICATE, SET_AUTHOR, FETCH_POSTS, LOG_OUT } from './actionTypes';
 
 export const authenticate = () => ({
   type: AUTHENTICATE,
-  payload: true,
 });
 
 export const setAuthor = (authorName) => ({
@@ -25,3 +24,7 @@ export const fetchPosts = () => {
     }
   };
 };
+
+export const logOut = () => ({
+  type: LOG_OUT,
+});
