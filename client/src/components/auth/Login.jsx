@@ -20,6 +20,10 @@ const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  React.useEffect(() => {
+    document.title = 'Login';
+  }, []);
+
   const changeHandler = (e, handler) => {
     setError(null);
     const { value } = e.target;
@@ -51,7 +55,7 @@ const Login = () => {
     if (res.status === 200) {
       dispatch(authenticate());
       dispatch(setAuthor(name));
-      history.push('/posts');
+      history.push('/');
     } else {
       const data = await res.json();
       const { msg } = data;

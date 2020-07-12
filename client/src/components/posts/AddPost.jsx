@@ -59,7 +59,7 @@ const AddPost = () => {
         },
         body: JSON.stringify(newPost),
       });
-      history.push('/posts');
+      history.push('/');
     } catch (error) {
       console.log('Failed to fetch', error);
     }

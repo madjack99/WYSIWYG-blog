@@ -15,7 +15,7 @@ const Header = () => {
   const predicate =
     pathname === '/add-post' || pathname.match(/\/post\/[\w, -]*/);
 
-  const newPath = predicate ? '/posts' : '/add-post';
+  const newPath = predicate ? '/' : '/add-post';
   const buttonTitle = predicate ? 'All posts' : 'Add post';
 
   const handleClick = () => {

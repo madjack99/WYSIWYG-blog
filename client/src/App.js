@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -13,22 +13,23 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Redirect from='/' to='/signup' />
-        <Route path='/signup'>
-          <Signup />
-        </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-        <Route path='/posts'>
-          <PostsListPage />
-        </Route>
-        <Route path='/add-post'>
-          <AddPostPage />
-        </Route>
-        <Route path='/post/:id'>
-          <PostPage />
-        </Route>
+        <Switch>
+          <Route path='/signup'>
+            <Signup />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/' exact>
+            <PostsListPage />
+          </Route>
+          <Route path='/add-post'>
+            <AddPostPage />
+          </Route>
+          <Route path='/post/:id'>
+            <PostPage />
+          </Route>
+        </Switch>
       </Router>
     </Provider>
   );
