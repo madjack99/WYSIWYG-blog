@@ -1,11 +1,16 @@
 import React from 'react';
 import CKEditor from 'ckeditor4-react';
+import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { FormWrapper, Form, Button } from '../../shared/sharedStyles';
 
 const AddPost = () => {
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
+  const { author } = useSelector((state) => state);
+  const history = useHistory();
 
   React.useEffect(() => {
     document.title = 'Добавить запись';
@@ -20,9 +25,28 @@ const AddPost = () => {
     setTitle(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(title, content);
+    const date = new Date().toLocaleString();
+    const newPost = {
+      title,
+      content,
+      author,
+      date,
+      id: uuidv4(),
+    };
+    try {
+      await fetch('http://localhost:5000/api/posts/add-post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPost),
+      });
+      history.push('/posts');
+    } catch (error) {
+      console.log('Failed to fetch', error);
+    }
   };
 
   return (
@@ -34,6 +58,7 @@ const AddPost = () => {
           placeholder='Post title'
           value={title}
           onChange={handleChange}
+          required
         />
         <br />
         <CKEditor onChange={onEditorChange} data={content} />
