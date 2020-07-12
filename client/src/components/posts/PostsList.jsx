@@ -1,14 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { fetchPosts } from '../../actions/actions';
 import { Li, Ul } from './postsListStyle';
 
 const PostsList = () => {
   const { posts } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
+    dispatch(fetchPosts());
     document.title = 'Главная';
-  });
+  }, [dispatch]);
 
   const renderPosts = () => {
     if (!posts.length) {

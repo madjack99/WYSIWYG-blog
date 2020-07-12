@@ -7,7 +7,32 @@ const router = express.Router();
  * @access Private
  */
 
-const postsDB = [];
+const postsDB = [
+  {
+    title: 'First post',
+    text: 'Some text',
+    date: '11/07/2020',
+    author: 'Alex',
+  },
+  {
+    title: 'First post',
+    text: 'Some text',
+    date: '11/08/2020',
+    author: 'Alex',
+  },
+  {
+    title: 'First post',
+    text: 'Some text',
+    date: '11/09/2020',
+    author: 'Alex',
+  },
+  {
+    title: 'First post',
+    text: 'Some text',
+    date: '11/03/2020',
+    author: 'Alex',
+  },
+];
 
 router.get('/', (req, res) => {
   res.json({ posts: postsDB });
