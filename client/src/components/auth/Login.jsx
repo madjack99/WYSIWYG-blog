@@ -11,7 +11,7 @@ import {
   FormWrapper,
   Form,
 } from '../../shared/sharedStyles';
-import { authenticate } from '../../actions/actions';
+import { authenticate, setAuthor } from '../../actions/actions';
 
 const Login = () => {
   const [name, setName] = React.useState('');
@@ -50,6 +50,7 @@ const Login = () => {
 
     if (res.status === 200) {
       dispatch(authenticate());
+      dispatch(setAuthor(name));
       history.push('/posts');
     } else {
       const data = await res.json();

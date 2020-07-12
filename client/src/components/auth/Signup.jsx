@@ -12,7 +12,7 @@ import {
   Form,
 } from '../../shared/sharedStyles';
 
-import { authenticate } from '../../actions/actions';
+import { authenticate, setAuthor } from '../../actions/actions';
 
 const Signup = () => {
   const [name, setName] = React.useState('');
@@ -50,8 +50,8 @@ const Signup = () => {
     });
 
     if (res.status === 201) {
-      console.log('success');
       dispatch(authenticate());
+      dispatch(setAuthor(name));
       history.push('/posts');
     } else {
       const data = await res.json();
