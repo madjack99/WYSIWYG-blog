@@ -1,27 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import { CustomHeader } from './headerStyle';
-import { Button, linkStyle } from '../../shared/sharedStyles';
+import { Button } from '../../shared/sharedStyles';
 
 const Header = () => {
   const location = useLocation();
+  const history = useHistory();
+  const { pathname } = location;
 
-  const linkPath = location.pathname === '/add-post' ? 'posts' : 'add-post';
-  const linkTitle =
-    location.pathname === '/add-post' ? 'All posts' : 'Add post';
+  const predicate =
+    pathname === '/add-post' || pathname.match(/\/post\/[\w, -]*/);
+
+  const newPath = predicate ? '/posts' : '/add-post';
+  const buttonTitle = predicate ? 'All posts' : 'Add post';
+
+  const handleClick = () => {
+    history.push(newPath);
+  };
 
   return (
     <CustomHeader>
-      <Button>
-        <Link to={linkPath} css={linkStyle}>
-          {linkTitle}
-        </Link>
-      </Button>
-
+      <Button onClick={handleClick}>{buttonTitle}</Button>
       <Button>Log out</Button>
     </CustomHeader>
   );
