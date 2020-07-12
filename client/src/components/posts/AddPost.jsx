@@ -9,7 +9,8 @@ import { FormWrapper, Form, Button } from '../../shared/sharedStyles';
 const AddPost = () => {
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
-  const { author, isAuthenticated } = useSelector((state) => state);
+  const [titleError, setTitleError] = React.useState(null);
+  const { author, isAuthenticated, posts } = useSelector((state) => state);
   const history = useHistory();
 
   if (!isAuthenticated) history.push('/login');
@@ -24,11 +25,24 @@ const AddPost = () => {
   };
 
   const handleChange = (e) => {
+    setTitleError(null);
     setTitle(e.target.value);
+  };
+
+  const validateTitle = (title) => {
+    const sameTitlePosts = posts.find((post) => post.title === title);
+    return sameTitlePosts ? false : true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isTitleUnique = validateTitle(title);
+    if (!isTitleUnique) {
+      setTitleError('Title must be unique');
+      return;
+    }
+
     const date = new Date().toLocaleString();
     const newPost = {
       title,
@@ -65,6 +79,7 @@ const AddPost = () => {
         <br />
         <CKEditor onChange={onEditorChange} data={content} />
         <br />
+        {titleError && titleError}
         <Button type='submit'>Add post</Button>
       </Form>
     </FormWrapper>
