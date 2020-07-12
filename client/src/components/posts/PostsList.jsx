@@ -6,9 +6,11 @@ import { fetchPosts } from '../../actions/actions';
 import { Li, Ul } from './postsListStyle';
 
 const PostsList = () => {
-  const { posts } = useSelector((state) => state);
+  const { posts, isAuthenticated } = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  if (!isAuthenticated) history.push('/login');
 
   React.useEffect(() => {
     dispatch(fetchPosts());

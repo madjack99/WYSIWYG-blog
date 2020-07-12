@@ -9,8 +9,10 @@ import { FormWrapper, Form, Button } from '../../shared/sharedStyles';
 const AddPost = () => {
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
-  const { author } = useSelector((state) => state);
+  const { author, isAuthenticated } = useSelector((state) => state);
   const history = useHistory();
+
+  if (!isAuthenticated) history.push('/login');
 
   React.useEffect(() => {
     document.title = 'Добавить запись';
